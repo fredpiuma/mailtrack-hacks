@@ -11,12 +11,13 @@
 (function() {
 	'use strict';
 	setInterval(function() {
+		/* auto click 'remove' signature button */
 		var removes = document.getElementsByClassName('mt-remove');
 		for( var i = 0; i < removes.length; i++ ) {
 			removes[i].click();
 		}
-	},10000);
-	setInterval(function() {
+
+		/* removes any modal of mailtrack */
 		if(document.getElementsByClassName('mt-modal-iframe').length)
 			document.getElementsByClassName('mt-modal-iframe')[0].remove(); 
 		if(document.getElementsByClassName('modal-backdrop').length)
