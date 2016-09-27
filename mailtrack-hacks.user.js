@@ -18,9 +18,14 @@
 		}
 
 		/* removes any modal of mailtrack */
-		if(document.getElementsByClassName('mt-modal-iframe').length)
-			document.getElementsByClassName('mt-modal-iframe')[0].remove(); 
-		if(document.getElementsByClassName('modal-backdrop').length)
-			document.getElementsByClassName('modal-backdrop')[0].remove(); 
+		var deletar = [];
+		if(document.getElementsByClassName('mt-modal-iframe').length) deletar = deletar.concat( document.getElementsByClassName('mt-modal-iframe') );
+		if(document.getElementsByClassName('modal-backdrop').length) deletar = deletar.concat( document.getElementsByClassName('modal-backdrop') );
+		if(document.querySelectorAll('[id*=intercom], [id=fred]').length) deletar = deletar.concat( document.querySelectorAll('[id*=intercom], [id=fred]') );
+
+		for(var i = 0; deletar.length; i++) {
+			deletar[i].remove();
+		}
+		
 	},1000);
 })();
