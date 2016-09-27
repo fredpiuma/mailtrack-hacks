@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gmail Remover Assinatura Mailtrack
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @match        https://mail.google.com/mail/u/*
@@ -18,13 +18,18 @@
 		}
 
 		/* removes any modal of mailtrack */
-		var deletar = [];
-		if(document.getElementsByClassName('mt-modal-iframe').length) deletar = deletar.concat( document.getElementsByClassName('mt-modal-iframe') );
-		if(document.getElementsByClassName('modal-backdrop').length) deletar = deletar.concat( document.getElementsByClassName('modal-backdrop') );
-		if(document.querySelectorAll('[id*=intercom], [id=fred]').length) deletar = deletar.concat( document.querySelectorAll('[id*=intercom], [id=fred]') );
+		var deletar = [
+		document.getElementsByClassName('mt-modal-iframe'),
+		document.getElementsByClassName('modal-backdrop'),
+		document.querySelectorAll('[id*=intercom], [id=fred]')
+		];
 
-		for(var i = 0; deletar.length; i++) {
-			deletar[i].remove();
+		for(var i in deletar) {
+			if( deletar[i].length > 0 ) {
+				for(var j = 0; j < deletar[i].length; j++) {
+					deletar[i][j].remove();
+				}
+			}
 		}
 		
 	},1000);
