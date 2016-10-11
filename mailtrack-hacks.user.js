@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Gmail Remover Assinatura Mailtrack
 // @namespace    http://tampermonkey.net/
-// @version      0.3
-// @description  try to take over the world!
+// @version      0.4
+// @description  
 // @author       You
 // @match        https://mail.google.com/mail/u/*
 // @grant        none
@@ -16,7 +16,7 @@
 		for( var i = 0; i < removes.length; i++ ) {
 			removes[i].click();
 			
-			/* limpa espaços em branco deixados pelo mailtrack */
+			/* clean junk spaces of mailtrack */
 			var $editable = document.getElementsByClassName('editable');
 			if($editable.length > 0) {
 				if($editable[0].getElementsByClassName('gmail_signature').length == 0) {
@@ -40,5 +40,5 @@
 			}
 		}
 		
-	},1000);
+	},500);
 })();
