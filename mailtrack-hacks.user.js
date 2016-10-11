@@ -15,6 +15,12 @@
 		var removes = document.getElementsByClassName('mt-remove');
 		for( var i = 0; i < removes.length; i++ ) {
 			removes[i].click();
+			var $editable = document.getElementsByClassName('editable');
+			if($editable.length > 0) {
+				if($editable[0].getElementsByClassName('gmail_signature').length == 0) {
+					$editable[0].innerHTML = '';
+				}
+			}
 		}
 
 		/* removes any modal of mailtrack */
