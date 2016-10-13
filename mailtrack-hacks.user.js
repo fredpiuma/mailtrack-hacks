@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         Gmail Hacks for Mailtrack and Asana
+// @name         Gmail Hacks for Mailtrack
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.6
 // @description  
 // @author       You
-// @match        https://mail.google.com/mail/u/*
+// @match        https://mail.google.com/mail/*
 // @grant        none
 // ==/UserScript==
 
