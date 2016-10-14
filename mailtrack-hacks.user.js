@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gmail Hacks for Mailtrack
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  
 // @author       You
 // @match        https://mail.google.com/mail/*
@@ -19,7 +19,7 @@
 			/* clean junk spaces of mailtrack */
 			var $editable = document.getElementsByClassName('editable');
 			if($editable.length > 0) {
-				if($editable[0].getElementsByClassName('gmail_signature').length == 0) {
+				if($editable[0].getElementsByClassName('gmail_signature').length == 0 && window.location.hash.indexOf('#drafts') == -1) {
 					$editable[0].innerHTML = '';
 				}
 			}
