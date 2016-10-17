@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gmail Hacks for Mailtrack
 // @namespace    http://tampermonkey.net/
-// @version      0.8
+// @version      0.9
 // @description  
 // @author       You
 // @match        https://mail.google.com/mail/*
@@ -17,10 +17,12 @@
 		for( var i = 0; i < removes.length; i++ ) {
 
 			/* clean junk spaces of mailtrack */
-			var $editable = document.getElementsByClassName('editable')[0];
-			while( $editable.getElementsByClassName('mt-signature')[0].previousElementSibling.tagName == 'BR' ) {
-				$editable.getElementsByClassName('mt-signature')[0].previousElementSibling.remove();
-			}
+			try {
+				var $editable = document.getElementsByClassName('editable')[0];
+				while( $editable.getElementsByClassName('mt-signature')[0].previousElementSibling != null && $editable.getElementsByClassName('mt-signature')[0].previousElementSibling.tagName == 'BR' ) {
+					$editable.getElementsByClassName('mt-signature')[0].previousElementSibling.remove();
+				}
+			} catch(es){}
 
 			/* remove mailtrack signature */
 			removes[i].click();
